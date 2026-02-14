@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day - Хайр дэлгэрэх</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">💕 Valentine's Day 💕</h1>
+            <p class="subtitle">Хайр ба сэтгэл хөдлөлийн баяр</p>
+        </header>
+
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="heart-animation">❤️</div>
+                <h2>Таны хайрт хүнд зориулсан мөч</h2>
+                <p class="hero-text">Энэхүү тусгай өдөр таны хайр сэтгэлийг илэрхийлэх боломж олгоно</p>
+            </section>
+
+            <section class="love-message">
+                <div class="message-card">
+                    <h3>Will you be my Valentine? 💕</h3>
+                    <div class="proposal-options">
+                        <button class="proposal-btn yes-btn" data-response="yes">
+                            <span class="btn-text">Тиймээ ❤️</span>
+                        </button>
+                        <button class="proposal-btn no-btn" data-response="no">
+                            <span class="btn-text">Үгүй 💔</span>
+                        </button>
+                    </div>
+                    <div class="custom-message" style="display: none;">
+                        <textarea id="loveMessage" placeholder="Нэмэлт хайрын мессежээ энд бичнэ үү..."></textarea>
+                        <button id="sendMessage" class="btn-primary">Мессеж илгээх</button>
+                    </div>
+                    <div class="response-message" id="responseMessage"></div>
+                    
+                    <div class="share-section" style="display: none;">
+                        <h4>💕 Энэ вэбсайтаа хуваалцах</h4>
+                        <div class="share-buttons">
+                            <button class="share-btn whatsapp-btn" data-platform="whatsapp">
+                                <span>📱 WhatsApp</span>
+                            </button>
+                            <button class="share-btn messenger-btn" data-platform="messenger">
+                                <span>💬 Messenger</span>
+                            </button>
+                            <button class="share-btn telegram-btn" data-platform="telegram">
+                                <span>✈️ Telegram</span>
+                            </button>
+                            <button class="share-btn copy-btn" data-platform="copy">
+                                <span>📋 Хуулбарлах</span>
+                            </button>
+                        </div>
+                        <div class="share-message">
+                            <textarea id="shareText" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="valentine-features">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💝</div>
+                        <h3>Бэлэг санаачилга</h3>
+                        <p>Хайрт хүндээ зориулсан бэлэгний санаа</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌹</div>
+                        <h3>Сэтгэл хөдлөл</h3>
+                        <p>Сэтгэл хөдлөлийг үгээр илэрхийлэх</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💕</div>
+                        <h3>Хайрын түүх</h3>
+                        <p>Таны хайрын түүхийг хуваалцах</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="countdown">
+                <h3>Valentine's Day хүртэл</h3>
+                <div class="countdown-timer">
+                    <div class="time-block">
+                        <span id="days">00</span>
+                        <span class="time-label">Өдөр</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours">00</span>
+                        <span class="time-label">Цаг</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes">00</span>
+                        <span class="time-label">Минут</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds">00</span>
+                        <span class="time-label">Секунд</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="love-quotes">
+                <h3>Хайрын нэмэлт үгс</h3>
+                <div class="quote-container">
+                    <blockquote id="quote">
+                        "Хайр гэдэг бол насан туршийн аялал жаахан хоёр хүний хамт"
+                    </blockquote>
+                    <button id="newQuote" class="btn-secondary">Шинэ үг</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Valentine's Day Website - Сумъяагын хайр
+ 
+            </p>
+        </footer>
+    </div>
+
+    <!-- Romantic Success Modal -->
+    <div id="romanticModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-hearts">
+                <div class="floating-heart">❤️</div>
+                <div class="floating-heart">💕</div>
+                <div class="floating-heart">💖</div>
+                <div class="floating-heart">💗</div>
+                <div class="floating-heart">💝</div>
+            </div>
+            
+            <div class="success-message">
+                <h2>🎉 Татгалзахгүй ёсгүй 🎉</h2>
+                <div class="heart-big">💕</div>
+                <p class="romantic-text">
+                    Та Сумъяагын Valentine байхаар зөвшөөрлөө!<br>
+                    Энэ бол миний хамгийн их баярлаж буй байдал!<br>
+                    Хөөрхөн Дээгийтэй хамт Valentine's Day-г тэмдэглэхэд баяртай байна! 🌹
+                </p>
+                
+                <div class="love-confession">
+                    <h3>💝 Миний хөөрхөн хайр:</h3>
+                    <p>Чи намайг хамгийн их аз жаргалуудаар хангасан.<br>
+                    Таны инээд миний өдрийг гэрэлтүүлдэг.<br>
+                    Тантай байгаа үргэлж л тусгай байдаг!</p>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="modal-btn close-modal" onclick="closeRomanticModal()">
+                        💕 Баярлалаа
+                    </button>
+                    <button class="modal-btn share-modal" onclick="shareFromModal()">
+                        📱 Хуваалцах
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-hearts"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
